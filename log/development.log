@@ -1,0 +1,120 @@
+DEPRECATION WARNING: You didn't set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from service at C:/RailsFTW200403/lib/ruby/2.0.0/webrick/httpserver.rb:138)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2014-08-05 23:58:34 +0100
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-08-05 23:58:42 +0100
+Processing by MoviesController#index as HTML
+Completed 500 Internal Server Error in 9ms
+
+RuntimeError (`attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one.):
+  app/models/movie.rb:2:in `<class:Movie>'
+  app/models/movie.rb:1:in `<top (required)>'
+  app/controllers/movies_controller.rb:10:in `index'
+
+
+  Rendered C:/RailsFTW200403/lib/ruby/gems/2.0.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsFTW200403/lib/ruby/gems/2.0.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsFTW200403/lib/ruby/gems/2.0.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+  Rendered C:/RailsFTW200403/lib/ruby/gems/2.0.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (133.0ms)
+DEPRECATION WARNING: You didn't set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from service at C:/RailsFTW200403/lib/ruby/2.0.0/webrick/httpserver.rb:138)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-08-06 07:39:20 +0100
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (20.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+SQLite3::SQLException: no such table: movies: SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.haml within layouts/application (63.0ms)
+Completed 500 Internal Server Error in 117ms
+
+ActionView::Template::Error (SQLite3::SQLException: no such table: movies: SELECT "movies".* FROM "movies"):
+     9:       %th Release Date
+    10:       %th More Info
+    11:   %tbody
+    12:     - @movies.each do |movie|
+    13:       %tr
+    14:         %td= movie.title 
+    15:         %td= movie.rating
+  app/views/movies/index.html.haml:12:in `_app_views_movies_index_html_haml___990968259_60111912'
+
+
+  Rendered C:/RailsFTW200403/lib/ruby/gems/2.0.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsFTW200403/lib/ruby/gems/2.0.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsFTW200403/lib/ruby/gems/2.0.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (61.0ms)
+  [1m[36m (142.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (118.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20111119180638"]]
+  [1m[36m (118.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (30.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 06 Aug 2014 06:41:03 UTC +00:00], ["rating", "G"], ["release_date", Wed, 25 Nov 1992 00:00:00 UTC +00:00], ["title", "Aladdin"], ["updated_at", Wed, 06 Aug 2014 06:41:03 UTC +00:00]]
+  [1m[35m (157.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 06 Aug 2014 06:41:03 UTC +00:00], ["rating", "R"], ["release_date", Fri, 26 Oct 1984 00:00:00 UTC +00:00], ["title", "The Terminator"], ["updated_at", Wed, 06 Aug 2014 06:41:03 UTC +00:00]]
+  [1m[36m (89.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 06 Aug 2014 06:41:03 UTC +00:00], ["rating", "R"], ["release_date", Fri, 21 Jul 1989 00:00:00 UTC +00:00], ["title", "When Harry Met Sally"], ["updated_at", Wed, 06 Aug 2014 06:41:03 UTC +00:00]]
+  [1m[35m (110.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00], ["rating", "PG-13"], ["release_date", Wed, 10 Aug 2011 00:00:00 UTC +00:00], ["title", "The Help"], ["updated_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00]]
+  [1m[36m (93.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00], ["rating", "PG-13"], ["release_date", Fri, 05 Jan 2001 00:00:00 UTC +00:00], ["title", "Chocolat"], ["updated_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00]]
+  [1m[35m (75.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00], ["rating", "R"], ["release_date", Wed, 25 Apr 2001 00:00:00 UTC +00:00], ["title", "Amelie"], ["updated_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00]]
+  [1m[36m (101.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00], ["rating", "G"], ["release_date", Sat, 06 Apr 1968 00:00:00 UTC +00:00], ["title", "2001: A Space Odyssey"], ["updated_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00]]
+  [1m[35m (126.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00], ["rating", "PG"], ["release_date", Fri, 05 Nov 2004 00:00:00 UTC +00:00], ["title", "The Incredibles"], ["updated_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00]]
+  [1m[36m (83.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00], ["rating", "PG"], ["release_date", Fri, 12 Jun 1981 00:00:00 UTC +00:00], ["title", "Raiders of the Lost Ark"], ["updated_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00]]
+  [1m[35m (93.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "movies" ("created_at", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00], ["rating", "G"], ["release_date", Wed, 21 Jun 2000 00:00:00 UTC +00:00], ["title", "Chicken Run"], ["updated_at", Wed, 06 Aug 2014 06:41:04 UTC +00:00]]
+  [1m[36m (92.0ms)[0m  [1mcommit transaction[0m
+DEPRECATION WARNING: You didn't set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from service at C:/RailsFTW200403/lib/ruby/2.0.0/webrick/httpserver.rb:138)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-08-06 07:41:32 +0100
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (5.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.haml within layouts/application (44.0ms)
+Completed 200 OK in 387ms (Views: 376.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-06 07:41:33 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-06 07:41:33 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-06 07:41:33 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-06 07:41:34 +0100
+
+
+Started GET "/movies/6" for 127.0.0.1 at 2014-08-06 07:42:00 +0100
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "6"]]
+DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from _app_views_movies_show_html_haml__488126910_36222300 at C:/Users/Simon/rails_projects/rails-intro/rottenpotatoes/app/views/movies/show.html.haml:18)
+  Rendered movies/show.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 35ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-08-06 07:42:04 +0100
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 1.0ms)
