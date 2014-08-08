@@ -118,3 +118,23 @@ Processing by MoviesController#index as HTML
   [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
   Rendered movies/index.html.haml within layouts/application (12.0ms)
 Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 1.0ms)
+DEPRECATION WARNING: You didn't set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from service at C:/RailsFTW200403/lib/ruby/2.0.0/webrick/httpserver.rb:138)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-08-07 23:59:50 +0100
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (31.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.haml within layouts/application (124.8ms)
+Completed 200 OK in 593ms (Views: 546.0ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-07 23:59:53 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-07 23:59:53 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-07 23:59:53 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-07 23:59:53 +0100
